@@ -20,4 +20,5 @@ Requirements
 Start the application
 ---------------------
 The application may be run using the Maven Tomcat plugin like so:
-~~mvn clean package tomcat7:run~~
+
+`mvn clean package tomcat7:run`
