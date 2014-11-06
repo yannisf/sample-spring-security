@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="yannis" password="yannis" authorities="ROLE_USER" />
+                <security:user name="alex" password="alex" authorities="ROLE_ADMIN, ROLE_USER" />
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <security:http>
+        <security:intercept-url pattern="/secure/**" access="ROLE_USER, ROLE_ADMIN" />
+        <security:intercept-url pattern="/api/**" access="ROLE_USER, ROLE_ADMIN" method="GET"/>
+        <security:intercept-url pattern="/api/**" access="ROLE_ADMIN" method="POST"/>
+        <security:form-login login-page="/login/login.html" default-target-url="/secure/index.jsp" always-use-default-target="true" />
+        <security:logout logout-url="/logout" logout-success-url="/index.html" invalidate-session="true"/>
+    </security:http>
+
+</beans>

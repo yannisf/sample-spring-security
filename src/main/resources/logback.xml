@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %p %t %C[%L]: %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="fraglab" level="info"/>
+    <logger name="org.springframework" level="warn"/>
+
+    <root level="info">
+    <appender-ref ref="stdout"/>
+    </root>
+
+</configuration>
