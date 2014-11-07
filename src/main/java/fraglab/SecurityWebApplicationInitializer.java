@@ -1,11 +1,12 @@
 package fraglab;
 
+import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
-public class WebApplicationInitializer implements org.springframework.web.WebApplicationInitializer {
+public class SecurityWebApplicationInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext container) {
